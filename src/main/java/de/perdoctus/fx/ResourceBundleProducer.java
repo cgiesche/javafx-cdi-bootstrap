@@ -2,7 +2,7 @@ package de.perdoctus.fx;
 
 /*
  * #%L
- * javafx-weld-bootstrap
+ * javafx-cdi-bootstrap
  * %%
  * Copyright (C) 2016 Christoph Giesche
  * %%
