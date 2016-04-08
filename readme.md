@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap.svg?branch=master)](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap)
+
 **Contexts and Dependency Injection for JavaFX**
 
 This library allows you to use Contexts and Dependency Injection in your JavaFX application. It uses Weld as the underlying CDI implementation.
