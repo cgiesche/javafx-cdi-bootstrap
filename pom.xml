@@ -4,15 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.perdoctus</groupId>
+    <groupId>de.perdoctus.fx</groupId>
     <artifactId>javafx-cdi-bootstrap</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <url>https://github.com/cgiesche/javafx-cdi-bootstrap</url>
 
     <organization>
         <name>Christoph Giesche</name>
         <url>http://www.cgidev.de</url>
     </organization>
     <inceptionYear>2016</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT-License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <build>
         <pluginManagement>
@@ -65,11 +74,9 @@
         </dependency>
     </dependencies>
 
-    <licenses>
-        <license>
-            <name>MIT-License</name>
-            <url>https://opensource.org/licenses/MIT</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+    <scm>
+        <url>https://github.com/cgiesche/javafx-cdi-bootstrap.git</url>
+        <developerConnection>git@github.com:cgiesche/javafx-cdi-bootstrap.git</developerConnection>
+    </scm>
+
 </project>
