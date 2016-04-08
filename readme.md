@@ -3,7 +3,7 @@
 This library allows you to use Contexts and Dependency Injection in your JavaFX application. It uses Weld as the underlying CDI implementation.
 
 To get started, first make sure, you have a `beans.xml` file created inside your META-INF directory:
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" bean-discovery-mode="all">
 </beans>
@@ -11,7 +11,7 @@ To get started, first make sure, you have a `beans.xml` file created inside your
 
 Then simply create a class that extends `FxWeldApplication`. It is very similar to the standard `Application` class from JavaFX core and can be used equally. It also provides a main-method to start the CDI container and your JavaFX application.
 
-```
+```java
 public class Main extends FxWeldApplication {
 
     @Inject
@@ -30,7 +30,7 @@ public class Main extends FxWeldApplication {
 
 As you can see, the `FXMLLoader` is already being injected by CDI. The `@Bundle` annotation assigns the provided `ResourceBundle` to the injected `FXMLLoader`. An instance of the controller class defined in the FXML-File will automatically be created and managed within the CDI context. 
 
-```
+```xml
 <VBox fx:controller="de.perdoctus.fx.Contoller">
    <children>
       <Label text="%label-text" />
@@ -42,7 +42,7 @@ As you can see, the `FXMLLoader` is already being injected by CDI. The `@Bundle`
 
 From now on, you are fully CDI enabled. You can write your own producers, inject everything into controllers and even use CDI events.
 
-```
+```java
 public class Controller {
     
     @Inject
@@ -68,20 +68,20 @@ public class Controller {
 This library includes producers for `FXMLLoader` and `ResourceBundle` classes. This is, how you can use them: 
 
 Inject FXMLLoader:
-```
+```java
 @Inject
 private FXMLLoader fxmlLoader;
 ```
 
 Inject FMXLLoader with "included" ResourceBundle:
-```
+```java
 Inject
 @Bundle("resourceBundles/General")
 private FXMLLoader fxmlLoader;
 ```
 
 Inject a ResourceBundle:
-```
+```java
 @Inject
 @Bundle("LoginDialogBundle")
 private ResourceBundle loginDialogRb;
