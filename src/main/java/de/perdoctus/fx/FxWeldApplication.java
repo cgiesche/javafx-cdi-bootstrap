@@ -31,7 +31,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * Extend this class instead of {@link Application}. You need exactly one implementation. Use the included main method
+ * Extend this class instead of {@link Application}. There must be exactly one implementation. Use the included main method
  * to bootstrap your application.
  *
  * @author Christoph Giesche
@@ -42,11 +42,26 @@ public abstract class FxWeldApplication {
         FxWeldApplicationLoader.launch(FxWeldApplicationLoader.class, args);
     }
 
+    /**
+     * This method gets called, before application is started.
+     *
+     * @see Application#init()
+     */
     public void init() throws Exception {
     }
 
-    public abstract void start(final Stage stage, final Application.Parameters parameters) throws Exception;
+    /**
+     * This method gets called, when application is started.
+     *
+     * @see Application#start(Stage)
+     */
+    public abstract void start(final Stage primaryStage, final Application.Parameters parameters) throws Exception;
 
+    /**
+     * This method gets called, when the application is stopped.
+     *
+     * @see Application#stop()
+     */
     public void stop() throws Exception {
     }
 
