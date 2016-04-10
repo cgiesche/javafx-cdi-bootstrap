@@ -76,7 +76,7 @@
 
     <scm>
         <url>https://github.com/cgiesche/javafx-cdi-bootstrap.git</url>
-        <developerConnection>git@github.com:cgiesche/javafx-cdi-bootstrap.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:cgiesche/javafx-cdi-bootstrap.git</developerConnection>
     </scm>
 
 </project>
