@@ -6,7 +6,7 @@
 
     <groupId>de.perdoctus.fx</groupId>
     <artifactId>javafx-cdi-bootstrap</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <url>https://github.com/cgiesche/javafx-cdi-bootstrap</url>
 
     <organization>
