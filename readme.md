@@ -85,7 +85,7 @@ private FXMLLoader fxmlLoader;
 Inject a ResourceBundle:
 ```java
 @Inject
-@Bundle("LoginDialogBundle")
+@Bundle("resourceBundles/LoginDialog")
 private ResourceBundle loginDialogRb;
 ```
 
