@@ -39,7 +39,6 @@
         <url>https://github.com/cgiesche/javafx-cdi-bootstrap.git</url>
         <connection>scm:git:git@github.com:cgiesche/javafx-cdi-bootstrap.git</connection>
         <developerConnection>scm:git:git@github.com:cgiesche/javafx-cdi-bootstrap.git</developerConnection>
-        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
@@ -64,17 +63,6 @@
                         <source>1.8</source>
                         <target>1.8</target>
                         <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
-                    <configuration>
-                        <useReleaseProfile>false</useReleaseProfile>
-                        <releaseProfiles>release</releaseProfiles>
-                        <goals>deploy</goals>
                     </configuration>
                 </plugin>
             </plugins>
@@ -105,30 +93,12 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
             <id>release</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
             <build>
                 <plugins>
                     <plugin>
