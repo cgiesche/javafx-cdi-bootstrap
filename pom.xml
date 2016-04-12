@@ -5,7 +5,7 @@
 
     <groupId>de.perdoctus.fx</groupId>
     <artifactId>javafx-cdi-bootstrap</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <name>Contexts and Dependency Injection for JavaFX</name>
     <description>A library that allows you to use "Contexts and Dependency Injection" in JavaFX applications.
