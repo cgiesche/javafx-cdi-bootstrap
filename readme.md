@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap.svg?branch=master)](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap)
+[![Build Status](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap.svg?branch=master)](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.perdoctus.fx/javafx-cdi-bootstrap/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.perdoctus.fx%22%20AND%20a%3A%22javafx-cdi-bootstrap%22)
+
 
 **Contexts and Dependency Injection for JavaFX**
 
