@@ -78,7 +78,7 @@ private FXMLLoader fxmlLoader;
 
 Inject FMXLLoader with "included" ResourceBundle:
 ```java
-Inject
+@Inject
 @Bundle("resourceBundles/General")
 private FXMLLoader fxmlLoader;
 ```
