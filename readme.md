@@ -1,18 +1,29 @@
 [![Build Status](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap.svg?branch=master)](https://travis-ci.org/cgiesche/javafx-cdi-bootstrap) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.perdoctus.fx/javafx-cdi-bootstrap/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.perdoctus.fx%22%20AND%20a%3A%22javafx-cdi-bootstrap%22) [![Dependency Status](https://www.versioneye.com/user/projects/57136231fcd19a00454411cd/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57136231fcd19a00454411cd)
 
-
 **Contexts and Dependency Injection for JavaFX**
 
 This library allows you to use Contexts and Dependency Injection in your JavaFX application. It uses Weld as the underlying CDI implementation.
 
-To get started, first make sure, you have a `beans.xml` file created inside your META-INF directory:
+**Getting Started**
+
+First make sure, you have added javafx-cdi-bootstrap to your classpath. If you are using maven you can achive this by adding the following dependency to your pom.xml:
+
+```xml
+<dependency>
+    <groupId>de.perdoctus.fx</groupId>
+    <artifactId>javafx-cdi-bootstrap</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
+
+Then add the following `beans.xml` file to your META-INF directory, to enable automatic bean discovery:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" bean-discovery-mode="all">
 </beans>
 ```
 
-Then simply create a class that extends `FxWeldApplication`. It is very similar to the standard `Application` class from JavaFX core and can be used equally. It also provides a main-method to start the CDI container and your JavaFX application.
+After that, simply create a class that extends `FxWeldApplication`. It is very similar to the standard `Application` class from JavaFX core and can be used equally. It also provides a main-method to start the CDI container and your JavaFX application.
 
 ```java
 public class Main extends FxWeldApplication {
