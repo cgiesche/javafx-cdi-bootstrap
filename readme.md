@@ -12,7 +12,7 @@ First make sure, you have added javafx-cdi-bootstrap to your classpath. If you a
 <dependency>
     <groupId>de.perdoctus.fx</groupId>
     <artifactId>javafx-cdi-bootstrap</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
