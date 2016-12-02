@@ -31,6 +31,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import org.jboss.weld.environment.se.WeldContainer;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
@@ -40,16 +41,17 @@ import java.util.ResourceBundle;
 /**
  * @author Christoph Giesche
  */
-public final class FmxlLoaderProducer {
+public final class FxmlLoaderProducer {
 
-    final WeldContainer weldContainer;
+    private final WeldContainer weldContainer;
 
     @Inject
-    public FmxlLoaderProducer(final WeldContainer weldContainer) {
+    public FxmlLoaderProducer(final WeldContainer weldContainer) {
         this.weldContainer = weldContainer;
     }
 
     @Produces
+    @Dependent
     public FXMLLoader produce(final InjectionPoint injectionPoint) {
         final Bundle annotation = injectionPoint.getAnnotated().getAnnotation(Bundle.class);
 

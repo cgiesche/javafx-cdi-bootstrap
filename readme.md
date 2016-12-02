@@ -94,6 +94,22 @@ Inject FMXLLoader with "included" ResourceBundle:
 private FXMLLoader fxmlLoader;
 ```
 
+Inject Instance<> of FXMLLoader to be able to receive multiple fresh instances for loading different FXML files. 
+```java
+@Inject
+private Instance<FXMLLoader> fxmlLoader;
+
+public void loadFxmls() throws Exception {
+    final FXMLLoader wizardPage1Loader = fxmlLoader.get(); // Fresh instance #1
+    final Node wizardPage1View = wizardPage1Loader.load(getClass().getResourceAsStream("/fxml/WizardPage1.fxml"));
+    final Object wizardPage1Controller = wizardPage1Loader.getController();
+
+    final FXMLLoader wizardPage2Loader = fxmlLoader.get(); // Fresh instance #2
+    final Node wizardPage2View = wizardPage2Loader.load(getClass().getResourceAsStream("/fxml/WizardPage2.fxml"));
+    final Object wizardPage2Controller = wizardPage2Loader.getController();
+}
+```
+
 Inject a ResourceBundle:
 ```java
 @Inject
