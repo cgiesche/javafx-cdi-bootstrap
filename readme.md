@@ -19,8 +19,8 @@ First make sure, you have added javafx-cdi-bootstrap to your classpath. If you a
 If not already present, add a CDI 2.0 implementation (Weld implementation for exampe):
 ```xml
 <dependency>
-    <groupId>org.jboss.weld</groupId>
-    <artifactId>weld-core-impl</artifactId>
+    <groupId>org.jboss.weld.se</groupId>
+    <artifactId>weld-se-core</artifactId>
     <version>3.0.5.Final</version>
 </dependency>
 ```
