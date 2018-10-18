@@ -1,10 +1,10 @@
 package de.perdoctus.fx;
 
-/*
+/*-
  * #%L
- * javafx-cdi-bootstrap
+ * Contexts and Dependency Injection for JavaFX
  * %%
- * Copyright (C) 2016 Christoph Giesche
+ * Copyright (C) 2016 - 2018 Christoph Giesche
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +27,20 @@ package de.perdoctus.fx;
  */
 
 
-import javax.enterprise.util.Nonbinding;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import javax.enterprise.util.Nonbinding;
 
+/**
+ * @author Christoph Giesche
+ */
 @Retention(RUNTIME)
 @Target({TYPE, METHOD, FIELD, PARAMETER})
 public @interface Bundle {

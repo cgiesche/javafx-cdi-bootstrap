@@ -1,10 +1,10 @@
 package de.perdoctus.fx;
 
-/*
+/*-
  * #%L
- * javafx-cdi-bootstrap
+ * Contexts and Dependency Injection for JavaFX
  * %%
- * Copyright (C) 2016 Christoph Giesche
+ * Copyright (C) 2016 - 2018 Christoph Giesche
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,28 +27,21 @@ package de.perdoctus.fx;
  */
 
 
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
-import org.jboss.weld.environment.se.WeldContainer;
+import java.nio.charset.StandardCharsets;
+import java.util.ResourceBundle;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
+import javax.enterprise.inject.spi.CDI;
 import javax.enterprise.inject.spi.InjectionPoint;
-import javax.inject.Inject;
-import java.nio.charset.StandardCharsets;
-import java.util.ResourceBundle;
+
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
 
 /**
  * @author Christoph Giesche
  */
 public final class FxmlLoaderProducer {
-
-    private final WeldContainer weldContainer;
-
-    @Inject
-    public FxmlLoaderProducer(final WeldContainer weldContainer) {
-        this.weldContainer = weldContainer;
-    }
 
     @Produces
     @Dependent
@@ -63,9 +56,9 @@ public final class FxmlLoaderProducer {
         }
 
         return new FXMLLoader(null, resourceBundle, new JavaFXBuilderFactory(), controllerClass -> {
-            final Object controller = weldContainer.instance().select(controllerClass).get();
+			final Object controller = CDI.current().select(controllerClass).get();
             if (controller == null) {
-                throw new RuntimeException("Failed to look up Controller of type " + controllerClass.getName() + " from ServiceLocator.");
+				throw new RuntimeException("Failed to look up controller of type " + controllerClass.getName() + ".");
             }
             return controller;
         }, StandardCharsets.UTF_8);

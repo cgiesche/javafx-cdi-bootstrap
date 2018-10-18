@@ -1,10 +1,10 @@
 package de.perdoctus.fx;
 
-/*
+/*-
  * #%L
- * javafx-cdi-bootstrap
+ * Contexts and Dependency Injection for JavaFX
  * %%
- * Copyright (C) 2016 Christoph Giesche
+ * Copyright (C) 2016 - 2018 Christoph Giesche
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,42 +27,43 @@ package de.perdoctus.fx;
  */
 
 
+import java.util.logging.Logger;
+
+import javax.enterprise.inject.Instance;
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * Extend this class instead of {@link Application}. There must be exactly one implementation. Use the included main method
- * to bootstrap your application.
- *
  * @author Christoph Giesche
  */
-public abstract class FxWeldApplication {
+public final class FxCdiApplicationLoader extends Application {
 
-    public static void main(final String[] args) {
-        FxWeldApplicationLoader.launch(FxWeldApplicationLoader.class, args);
-    }
+    private Logger log = Logger.getLogger(getClass().getName());
+	private FxCdiApplication	fxWeldApplication;
 
-    /**
-     * This method gets called, before application is started.
-     *
-     * @see Application#init()
-     */
+    @Override
     public void init() throws Exception {
+		final SeContainer seContainer = SeContainerInitializer.newInstance().initialize();
+		final Instance<FxCdiApplication> fxWeldApplications = seContainer.select(FxCdiApplication.class);
+
+        fxWeldApplication = fxWeldApplications.get();
+        log.info("Initializing application.");
+        fxWeldApplication.init();
     }
 
-    /**
-     * This method gets called, when application is started.
-     *
-     * @see Application#start(Stage)
-     */
-    public abstract void start(final Stage primaryStage, final Application.Parameters parameters) throws Exception;
+    @Override
+    public void start(final Stage stage) throws Exception {
+        log.info("Starting application.");
+        fxWeldApplication.start(stage, getParameters());
+    }
 
-    /**
-     * This method gets called, when the application is stopped.
-     *
-     * @see Application#stop()
-     */
+    @Override
     public void stop() throws Exception {
+        log.info("Stopping application.");
+        fxWeldApplication.stop();
     }
 
 }

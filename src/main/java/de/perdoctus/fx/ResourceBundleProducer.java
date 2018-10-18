@@ -1,10 +1,10 @@
 package de.perdoctus.fx;
 
-/*
+/*-
  * #%L
- * javafx-cdi-bootstrap
+ * Contexts and Dependency Injection for JavaFX
  * %%
- * Copyright (C) 2016 Christoph Giesche
+ * Copyright (C) 2016 - 2018 Christoph Giesche
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,14 @@ package de.perdoctus.fx;
  */
 
 
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
 import java.util.ResourceBundle;
 
+import javax.enterprise.inject.Produces;
+import javax.enterprise.inject.spi.InjectionPoint;
+
+/**
+ * @author Christoph Giesche
+ */
 public class ResourceBundleProducer {
 
     @Produces

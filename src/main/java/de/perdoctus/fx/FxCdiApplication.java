@@ -1,10 +1,10 @@
 package de.perdoctus.fx;
 
-/*
+/*-
  * #%L
- * javafx-cdi-bootstrap
+ * Contexts and Dependency Injection for JavaFX
  * %%
- * Copyright (C) 2016 Christoph Giesche
+ * Copyright (C) 2016 - 2018 Christoph Giesche
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,41 +26,39 @@ package de.perdoctus.fx;
  * #L%
  */
 
-
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 
-import javax.enterprise.inject.Instance;
-import java.util.logging.Logger;
+/**
+ * @author Christoph Giesche
+ */
+public abstract class FxCdiApplication {
 
-public final class FxWeldApplicationLoader extends Application {
+	public static void main(final String[] args) {
+		FxCdiApplicationLoader.launch(FxCdiApplicationLoader.class, args);
+	}
 
-    private Logger log = Logger.getLogger(getClass().getName());
-    private FxWeldApplication fxWeldApplication;
+	/**
+	 * This method gets called, before application is started.
+	 *
+	 * @see Application#init()
+	 */
+	public void init() {
+	}
 
-    @Override
-    public void init() throws Exception {
-        final Weld weld = new Weld();
-        final WeldContainer weldContainer = weld.initialize();
-        final Instance<FxWeldApplication> fxWeldApplications = weldContainer.instance().select(FxWeldApplication.class);
+	/**
+	 * This method gets called, when application is started.
+	 *
+	 * @see Application#start(Stage)
+	 */
+	public abstract void start(final Stage primaryStage, final Application.Parameters parameters) throws Exception;
 
-        fxWeldApplication = fxWeldApplications.get();
-        log.info("Initializing application.");
-        fxWeldApplication.init();
-    }
-
-    @Override
-    public void start(final Stage stage) throws Exception {
-        log.info("Starting application.");
-        fxWeldApplication.start(stage, getParameters());
-    }
-
-    @Override
-    public void stop() throws Exception {
-        log.info("Stopping application.");
-        fxWeldApplication.stop();
-    }
+	/**
+	 * This method gets called, when the application is stopped.
+	 *
+	 * @see Application#stop()
+	 */
+	public void stop() {
+	}
 
 }
